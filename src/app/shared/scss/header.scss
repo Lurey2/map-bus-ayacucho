@@ -1,0 +1,14 @@
+.header-dialog {
+    width: 100%;
+    background-color: #1E1E1E;
+    color: white;
+    padding: 14px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    .tittle-dialog{
+        font-size: 24px;
+        font-weight: 400;
+        margin: 0px !important;
+    }
+}

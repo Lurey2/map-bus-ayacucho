@@ -1,0 +1,21 @@
+
+.list-button-bottom{
+    position: relative;
+}
+
+.btn-bottom{
+    z-index: 999;
+    position: absolute;
+    right: 10px;
+}
+
+div.list-button-bottom{
+
+    @for $i from 1 through 10 {
+        button:nth-child(3n + #{$i}) {
+            top: 60px + (($i - 1) * 50px) !important;
+
+        }
+    }
+}
+  

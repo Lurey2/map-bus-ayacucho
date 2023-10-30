@@ -1,0 +1,38 @@
+<mat-toolbar style="background-color: blueviolet" >
+  <div  style="width: 100%; padding: 2px 0;margin-top: 4px; " >
+    <div style="width: 100%;" class="flex flex-row "  >
+
+
+      <div class="flex justify-beetween w-full"  [ngClass]="{'flex-col justify-center items-center ': !querySize(768) }" >
+        <div  >
+          <a class="mat-button  mat-primary" routerLink="/map" style="color: white;">BIENVENIDO</a>
+        </div>
+        <span style="flex : 1" > </span>
+        <div class="flex justify-beetween text-base gap-2 " >
+
+          <a class="mat-button  mat-primary" routerLink="/contacto" style="color: white;">Contacto</a>
+          <a class="mat-button  mat-primary" routerLink="/informacion" style="color: white;">Informacion</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</mat-toolbar>
+
+<div class="flex items-center justify-center w-full  px-4 bg-blue" style="height: calc(100% - 80px);"  >
+  <div>
+    <h3 class="tittleSecondary" >Contacto</h3>
+    <p> Para cualquier problema puede comunicarse con estos contactos :</p>
+    <ul>
+      <li>
+        <span>Correo :</span>
+        <span> reymerretamozolopez@gmail.com</span>
+      </li>
+      <li>
+        <span>Celular :</span>
+        <span> +51980342321</span>
+      </li>
+    </ul>
+  </div>
+
+</div>

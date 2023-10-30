@@ -1,0 +1,66 @@
+app-mapleaflet{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.option-header{
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 1000;
+  margin-top: 10px;
+}
+.map-main{
+  height: 100%;
+  width: 100%;
+}
+
+
+.map{
+  height: 100%;
+  width: 100%;
+}
+
+#map {
+  height: 100%;
+}
+
+.probando {
+  background-color: red;
+}
+
+
+
+.origen_svg{
+  background-color: white !important;
+  padding: 1px;
+  border-radius: 50px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: red;
+}
+
+.destiny_svg {
+  background-color: white !important;
+  padding: 1px;
+  border-radius: 50px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #007ACC;
+}
+
+.info-botoom{
+  z-index: 1000;
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  padding: 5px 20px;
+  border-radius: 5px;
+  display: flex;
+  gap: 10px;
+  transform: translate(-50%, 0);
+  background-color: #007ACC;
+  align-items: center;
+}

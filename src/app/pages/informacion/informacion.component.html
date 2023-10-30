@@ -1,0 +1,64 @@
+<mat-toolbar style="background-color: blueviolet" >
+  <div  style="width: 100%; padding: 2px 0;margin-top: 4px; " >
+    <div style="width: 100%;" class="flex flex-row "  >
+
+
+      <div class="flex justify-beetween w-full"  [ngClass]="{'flex-col justify-center items-center ': !querySize(768) }" >
+        <div  >
+          <a class="mat-button  mat-primary" routerLink="/map" style="color: white;">BIENVENIDO</a>
+
+
+        </div>
+        <span style="flex : 1" > </span>
+        <div class="flex justify-beetween text-base  gap-2 " >
+
+          <a class="mat-button  mat-primary" routerLink="/contacto" style="color: white;">Contacto</a>
+          <a class="mat-button  mat-primary" routerLink="/informacion" style="color: white;">Informacion</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</mat-toolbar>
+<div class="flex items-center justify-center w-full  px-4 bg-blue mt-4 "   >
+  <div style="max-width: 600px; "  class="space-y-2 ">
+    <h3 class="tittleSecondary"  >INFORMACION</h3>
+    <p>
+      Esta web se esta realizando con datos recopilados de la fecha 06/05/2023 por lo cual , si presenta
+      un incoveniente con la web notificar a la direccion de contacto con el incoveniente.
+      La web cuenta con la siguiente funcionalidades :
+
+    </p>
+    <ul class="list-disc  space-y-2 ml-4 " >
+      <li>Conseguir la ruta mas cerca de una posicion a otra posicion (Advertencia : Los datos para analizar la ruta mas cerca se tomo en cuenta la velocidad promedio de bus y personas por lo cual la informacion no sera precisa para la ciudad de Huamanga).</li>
+      <li>Enviar la ubicacion a un tercero.</li>
+      <li>Poder listar sus rutas favoritas (Estas ruta favorita no afectara el resultado de la busqueda de la ruta mas cercana).</li>
+    </ul>
+    <p>
+      Esta es la version beta por lo cual se espera que pronto se añada mas funcionalidades. Si desea alguna funcionalidad que se añada en la proxima version, enviar un mensaje al correo de contacto.
+    </p>
+    <div class="w-full" >
+      <table class="table-list-custom-2" >
+        <thead>
+          <tr>
+            <th>RUTA</th>
+            <th>ESTADO</th>
+            <th>ULTIMA ACTUALIZACIÓN</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ruta of rutas"  >
+              <td>{{ruta.Name}}</td>
+              <td>
+                <span *ngIf="ruta.State" >Activo</span>
+                <span *ngIf="!ruta.State" >No Activo</span>
+              </td>
+              <td>{{ruta.UpdatedAt | date: 'dd-MM-yyyy' }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+
+</div>

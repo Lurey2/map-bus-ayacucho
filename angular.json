@@ -28,9 +28,13 @@
             "assets": [
               "src/favicon.ico",
               "src/assets"
+
             ],
             "styles": [
-              "src/styles.scss"
+              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.scss",
+              "./node_modules/leaflet/dist/leaflet.css",
+              "./node_modules/devextreme/dist/css/dx.light.css"
             ],
             "scripts": []
           },
@@ -39,8 +43,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "2.50MB",
+                  "maximumError": "2.50MB"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -49,6 +53,7 @@
                 }
               ],
               "outputHashing": "all"
+
             },
             "development": {
               "buildOptimizer": false,
@@ -63,6 +68,9 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "host": "0.0.0.0"
+          },
           "configurations": {
             "production": {
               "browserTarget": "bus-ayacucho:build:production"
@@ -93,7 +101,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.scss",
+              "./node_modules/leaflet/dist/leaflet.css",
+              "./node_modules/devextreme/dist/css/dx.light.css"
             ],
             "scripts": []
           }

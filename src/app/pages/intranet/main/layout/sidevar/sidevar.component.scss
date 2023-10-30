@@ -1,0 +1,73 @@
+app-sidevar{
+    width: 100%;
+}
+
+.container-sidevar-m{
+    transition: 0.555s;
+    width:100%;
+    height: 100vh;
+}
+
+.button-open{
+    z-index: 999;
+    position: absolute;
+    top: 12px;
+    left: 12px;
+}
+
+.desactiveS {
+    display: none;
+}
+
+.activeS {
+    display: block;
+    animation-name: openSidevar;
+    animation-duration: 0.555s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes openSidevar {
+    from {
+        width: 0px;
+    }
+    to {
+        width: 350px;
+    }
+}
+.background-sidevar{
+    width: 100%;
+    height: 100%;
+    background:var(--backgroundColor);
+}
+.button-cerrar{
+    height: 80px;
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    >div{
+       margin-left: auto;
+    }
+}
+
+.list-menu-s{
+    >a {
+        
+        cursor: pointer;
+        text-decoration: none;
+        color: darkolivegreen;
+        font-size: 18px;
+        .item-sidevar{
+            height: 55px;
+            display: flex;
+            padding: 10px;
+            align-items: center;
+            flex-direction: row;
+            >span {
+                
+        font-weight: 500;
+            }
+        }
+    }
+}

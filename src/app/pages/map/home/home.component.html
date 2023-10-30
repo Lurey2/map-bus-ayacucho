@@ -1,0 +1,168 @@
+<!--<div class="map-main" style="display: flex; flex-direction: column">
+  <div style="height: 60px; width: 100%; background-color: blueviolet ;align-items: center;"
+    [ngClass]="{'flex-col': !querySize(768)}" class="flex  justify-between">
+    <h1 class="text-2xl text-white " style="margin: 0 10px;">BIENVENIDO</h1>
+    <div class="flex justify-beetween ">
+      <button mat-button style="color: white;">Contacto</button>
+      <button mat-button style="color: white;">Informacion</button>
+    </div>
+  </div>
+  <div style="display: flex; flex-direction: row">
+    <div class="map-list w-64" *ngIf="querySize(768)">
+      <div style="width: 100%; display: flex; flex-direction: column;position: relative;">
+        <div *ngIf="selectionBus >= 0" style="position: absolute;top : 0px ; right: 0px; ">
+          <button mat-icon-button style="width: 24px;height: 24px;" (click)="cerrarSeleccion()"> <mat-icon
+              style="font-size: 18  px;">close</mat-icon> </button>
+        </div>
+        <div *ngFor="let item of dataRoute ; let i = index" (click)="selectBus(item , i)"
+          class=" pl-4 pr-8 py-4 transition ease-in-out duration-150 hover:bg-sky-200 "
+          [ngClass]="{'bg-sky-100': i === selectionBus}"
+          style="display: flex; align-items: center; flex-direction: row; height: 45px;cursor: pointer;">
+          <div class="text-sm">
+            <span>{{ item.Name }}</span>
+          </div>
+          <span style="flex: 1;"></span>
+          <mat-icon matSuffix [ngStyle]="{ color: item.Color}">
+            directions_bus
+          </mat-icon>
+        </div>
+      </div>
+    </div>
+    <ng-template #other_content>
+      <div style="min-width: 25vw; height: 100%"></div>
+    </ng-template>
+    <div class="map-component-leaflet-back">
+      <div class="list-button-bottom">
+        <button mat-mini-fab class="btn-bottom" matTooltip="Ordenar Ruta" (click)="openOrder()"
+          style="background-color: #0DBC79;">
+
+          <mat-icon>favorite</mat-icon>
+        </button>
+        <button mat-mini-fab class="btn-bottom" *ngIf="!optionNearbyRoute" matTooltip="Abrir destino "
+          (click)="openDestinyRoute()" style="background-color: #183aff;">
+
+          <mat-icon>directions_run</mat-icon>
+        </button>
+        <button mat-mini-fab *ngIf="optionNearbyRoute" class="btn-bottom" matTooltip="Cerrar destino"
+          (click)="closedDestiny()" style="background-color: #F44336;">
+
+          <mat-icon>close</mat-icon>
+        </button>
+        <button mat-mini-fab class="btn-bottom" matTooltip="Ubicarse" (click)="ubicarse()"
+          style="background-color: #007ACC;">
+
+          <mat-icon>location_on</mat-icon>
+        </button>
+        <!--
+
+            <button mat-mini-fab  class="btn-bottom" style="top: 110px;">
+
+              <mat-icon >close</mat-icon>
+            </button>
+            <button mat-mini-fab class="btn-bottom" style="top: 160px;">
+              <mat-icon >more_vert</mat-icon>
+
+            </button>
+          </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div *ngIf="querySize(768)" class="fixed bottom-4 right-4 p-2 text-white rounded "
+  style="z-index: 999;background-color: #00050F;">
+  v. Beta 0.1
+</div>
+
+        -->
+<mat-toolbar style="background-color: blueviolet">
+  <div style="width: 100%; padding: 2px 0;margin-top: 4px; ">
+    <div style="width: 100%;" class="flex flex-row ">
+      <div *ngIf="sidenav.mode === 'over'" class="flex items-center	justify-center ">
+        <button mat-icon-button style="color: white;" (click)="sidenav.toggle()">
+          <mat-icon *ngIf="!sidenav.opened">
+            menu
+          </mat-icon>
+          <mat-icon *ngIf="sidenav.opened">
+            close
+          </mat-icon>
+        </button>
+      </div>
+
+
+      <div class="flex justify-beetween items-center w-full"
+        [ngClass]="{'flex-col justify-center items-center ': !querySize(768) }">
+        <div>
+          <a class="mat-button  mat-primary" routerLink="/map" style="color: white;">BIENVENIDO</a>
+
+        </div>
+        <span style="flex : 1"> </span>
+        <div class="flex justify-beetween gap-2 text-base  ">
+
+          <a class="mat-button  mat-primary" routerLink="/contacto" style="color: white;">Contacto</a>
+          <a class="mat-button  mat-primary" routerLink="/informacion" style="color: white;">Informacion</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav="matSidenav">
+    <div style="width: 100%; display: flex; flex-direction: column;position: relative;"  >
+
+      <div *ngFor="let item of dataRoute ; let i = index" (click)="selectBus(item , i)"
+        class=" pl-4 pr-8 py-4 transition ease-in-out duration-150 hover:bg-sky-200 "
+        [ngClass]="{'bg-sky-100': i === selectionBus}"
+        style="display: flex; align-items: center; flex-direction: row; height: 45px;cursor: pointer;">
+        <div class="text-sm">
+          <span>{{ item.Name }}</span>
+        </div>
+        <span style="flex: 1;"></span>
+        <mat-icon matSuffix [ngStyle]="{ color: item.Color}">
+          directions_bus
+        </mat-icon>
+      </div>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content mat-elevation-z8" style="position: relative;">
+
+      <button mat-mini-fab class="btn-bottom" matTooltip="Ordenar Ruta" (click)="openOrder()"
+        style="background-color: #0DBC79;">
+
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <!--<button mat-mini-fab class="btn-bottom" *ngIf="!optionNearbyRoute" matTooltip="Abrir destino "
+        (click)="openDestinyRoute()" style="background-color: #183aff;">
+
+        <mat-icon>directions_run</mat-icon>
+      </button>
+      <button mat-mini-fab *ngIf="optionNearbyRoute" class="btn-bottom" matTooltip="Cerrar destino"
+        (click)="closedDestiny()" style="background-color: #F44336;">
+
+        <mat-icon>close</mat-icon>
+      </button>-->
+      <button mat-mini-fab class="btn-bottom" matTooltip="Ubicarse" (click)="ubicarse()"
+        style="background-color: #007ACC;">
+
+        <mat-icon>location_on</mat-icon>
+      </button>
+      <button mat-mini-fab class="btn-bottom" matTooltip="Lugares" (click)="listMapas()"
+        style="background-color: #30BCFF;">
+        <mat-icon>home_pin</mat-icon>
+      </button>
+      <button mat-mini-fab class="btn-bottom" matTooltip="Cerrar seleccion" *ngIf="mapLeaflet?.routinControl?.length === 1" (click)="cerrarSeleccion()"
+      style="background-color: #F44336;">
+        <mat-icon>close</mat-icon>
+      </button>
+
+
+
+      <app-mapleaflet (routeLoad)="loadRoute($event)"> </app-mapleaflet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,18 @@
+<div
+  class="map"
+  leaflet
+  [leafletOptions]="options"
+
+  (leafletMapReady)="onMapReady($event)"
+>
+</div>
+
+<div class="contanierMenu" [ngStyle]="{'left': positionX + 'px' , 'top' : positionY + 'px' }" *ngIf="show"   >
+
+  <div (click)="crearLocation()" >
+    Crear
+  </div>
+  <div (click)="UpdateLocation()" *ngIf="data.location" >
+    Actualizar
+  </div>
+</div>

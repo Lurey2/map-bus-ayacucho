@@ -1,0 +1,33 @@
+
+<div class="list-button-bottom" >
+    <button mat-mini-fab  class="btn-bottom" matTooltip="Nueva Ruta"   (click)="openRutas()" style="background-color: #0DBC79;" >
+
+      <mat-icon >add</mat-icon>
+    </button>
+    <button mat-mini-fab  class="btn-bottom" matTooltip="Lista de Ruta"    (click)="openListRutas()" style="background-color: #007ACC;" >
+
+      <mat-icon >dvr</mat-icon>
+    </button>
+    <button mat-mini-fab  class="btn-bottom" matTooltip="Lista de lugares"    (click)="openLocations()" style="background-color: #7DB443;" >
+
+      <mat-icon >person_pin_circle</mat-icon>
+    </button>
+
+
+    <!--
+
+        <button mat-mini-fab  class="btn-bottom" style="top: 110px;">
+
+          <mat-icon >close</mat-icon>
+        </button>
+        <button mat-mini-fab class="btn-bottom" style="top: 160px;">
+          <mat-icon >more_vert</mat-icon>
+
+        </button>
+      </div>
+    -->
+
+</div>
+<div   style="width: 100%;height: 100%;"   >
+    <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,32 @@
+<div class="w-screen h-screen bg-sky-100 flex justify-center items-center">
+  <form [formGroup]="form" >
+    <div class="w-96 h-96 bg-white drop-shadow  rounded-md">
+      <div class="flex w-full h-full justify-center items-center gap-4 flex-col" >
+          <div>
+              <h1>INICIAR SESION</h1>
+          </div>
+          <div class="flex justify-center items-center gap-3 flex-col" >
+            <mat-form-field class="w-72" >
+              <mat-label>Email o Usuario</mat-label>
+              <input matInput formControlName="Username" placeholder="jugan@gmail.com" >
+            </mat-form-field>
+            <mat-form-field class="w-72">
+              <mat-label>Password</mat-label>
+              <input matInput [type]="hide ? 'password' : 'text' "  formControlName="Password"  placeholder="******" >
+              <button type="button"  mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Esconder password'">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+            </mat-form-field>
+            <input type="text" formControlName="Password"  >
+          </div>
+          <div *ngIf="errorLogin"  class="text-center text-red-500" >
+            Error en el Usuario o Contraseña
+          </div>
+          <div>
+            <button mat-flat-button (click)="initSession()" type="submit"  color="primary" [disabled]="form.invalid" style="width: 120px;" >Enviar</button>
+          </div>
+
+      </div>
+    </div>
+  </form>
+</div>

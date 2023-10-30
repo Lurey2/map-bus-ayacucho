@@ -1,0 +1,39 @@
+.container-navigation{
+    position: relative;
+    width: 100%;
+}
+
+.button-option-menu{
+    position: absolute;
+    right: 10px;}
+
+.list-button-rigth{
+    position: absolute;
+    z-index: 999;
+
+    right: 55px;
+    display: none;
+    button{
+        margin: 0 10px;
+    }
+    
+}
+
+
+.openMenu{
+    display: block;
+    
+    animation-name: openM;
+    animation-duration: 0.555s;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes openM {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
