@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 import { DataService } from './data.service';
 import { LocalStorageService } from './local-storage.service';
 import { Route } from '../model/route';
+import { Response } from '../model/Response';
 const basePath = "route";
 
 @Injectable({
@@ -73,6 +74,15 @@ constructor(
       CoordInitialLng : origin.lng
     }
     return this.generic.all(basePath).all("nearbyRouteLtnLng").post(content);
+  }
+
+
+  FindByIdUser() : Observable<Response<Route[]>>{
+    return this.generic.all(basePath).all("getRouteUser").post()
+  }
+
+  findWithPointByUser()  : Observable<Response<Route[]>>{
+    return this.generic.all(basePath).all("getRoutePointUser").post()
   }
 
 }

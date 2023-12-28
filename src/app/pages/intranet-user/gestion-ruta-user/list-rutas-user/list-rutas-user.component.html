@@ -1,0 +1,54 @@
+<div class="bg-white rounded px-2 py-1 flex justify-between items-center " >
+  <span class="text-xl flex align-middle">Tus Rutas </span>
+  <button mat-icon-button color="primary" (click)="openRoute()" >
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
+
+<div class="px-2 py-1 bg-white rounded-sm  flex flex-col gap-2 ">
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Buscar</mat-label>
+      <input matInput  >
+    </mat-form-field>
+  </div>
+  <div>
+    <table class="table-list-custom-2" >
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Color</th>
+          <th>Descripcion</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody *ngIf="!loading" >
+        <tr *ngIf="routeData.length === 0"   >
+         <td colspan="4"  >
+          <div  class="h-20 flex align-middle justify-center" >
+            No hay ninguna ruta creada
+          </div>
+         </td>
+        </tr>
+        <tr  *ngFor="let route of routeData" >
+          <td>{{route.Name}}</td>
+          <td [ngStyle]="{'color': route.Color}"  >{{route.Color}}</td>
+          <td>{{route.Description}}</td>
+          <td>
+            <button mat-icon-button (click)="openRoute(route)" matTooltip="Editar" ><mat-icon>edit</mat-icon></button>
+            <button mat-icon-button color="warn" (click)="delete(route)" matTooltip="Eliminar" ><mat-icon>delete</mat-icon></button>
+            <button mat-icon-button color="primary" (click)="view(route)"   matTooltip="ver"   ><mat-icon>visibility</mat-icon></button>
+          </td>
+        </tr>
+
+      </tbody>
+      <td colspan="4" *ngIf="loading" >
+        <div class="flex w-full justify-center"  >
+
+          <mat-spinner diameter="40" >
+          </mat-spinner>
+        </div>
+      </td>
+    </table>
+  </div>
+</div>

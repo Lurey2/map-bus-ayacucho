@@ -47,7 +47,6 @@ import { CdkTableModule } from '@angular/cdk/table';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { OverlayModule } from '@angular/cdk/overlay';
 
-import { DxContextMenuModule } from 'devextreme-angular';
 
 @NgModule({
   imports: [
@@ -86,8 +85,7 @@ import { DxContextMenuModule } from 'devextreme-angular';
     MatTooltipModule,
     CdkTableModule,
     FlexLayoutModule ,
-    OverlayModule,
-    DxContextMenuModule
+    OverlayModule
   ],
   exports: [
     MatAutocompleteModule,
@@ -124,7 +122,6 @@ import { DxContextMenuModule } from 'devextreme-angular';
     CdkTableModule,
     FlexLayoutModule,
     OverlayModule,
-    DxContextMenuModule
   ],
   declarations: [],
   providers: [

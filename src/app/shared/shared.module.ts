@@ -13,11 +13,12 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { MatIconModule } from '@angular/material/icon';
 import { CoreModule } from '../core/core.module';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { MarketIconComponentComponent } from './components/market-icon-component/market-icon-component.component' ;
+import { MarketIconComponentComponent } from './components/market-icon-component/market-icon-component.component';
+import { NavbarHeaderComponent } from './components/navbar-header/navbar-header.component' ;
 
 
 @NgModule({
-    declarations: [ DialogConfirmComponent, MarketIconComponentComponent],
+    declarations: [ DialogConfirmComponent, MarketIconComponentComponent, NavbarHeaderComponent],
     imports: [
         CommonModule,
         MaterialModule,
@@ -48,7 +49,8 @@ import { MarketIconComponentComponent } from './components/market-icon-component
         LeafletModule,
         MatIconModule,
         NgxSpinnerModule,
-        MarketIconComponentComponent
+        MarketIconComponentComponent,
+        NavbarHeaderComponent
     ],
     providers: [
 

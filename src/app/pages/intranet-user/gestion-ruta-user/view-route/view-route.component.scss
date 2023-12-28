@@ -1,0 +1,27 @@
+app-view-route{
+  height: 75vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+
+.menu-view-route{
+  background-color: white;
+  position: absolute;
+  z-index: 500;
+}
+
+.mat-menu-item{
+  transition: 0.222s;
+  cursor: pointer;
+  &:hover{
+    background-color: #ABD8F7;
+    color: white;
+  }
+}
+
+
+.leaflet-container.crosshair-cursor-enabled {
+  cursor: url("../../../../../assets/cursor_selector.png") , pointer ;
+}

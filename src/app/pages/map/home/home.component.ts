@@ -12,6 +12,8 @@ import { MapLocationsComponent } from '../map-locations/map-locations.component'
 import { LatLng } from 'leaflet';
 import { LocationC } from 'src/app/core/model/Location';
 
+
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',

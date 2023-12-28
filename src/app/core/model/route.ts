@@ -6,5 +6,6 @@ export interface Route {
   Color : String ;
   State : boolean ;
   Description : string;
+  IdUser? : number;
   Routes? : PointInterface[];
 }

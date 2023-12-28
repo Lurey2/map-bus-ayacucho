@@ -1,8 +1,8 @@
-import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, retry } from "rxjs/operators";
 import { Router } from '@angular/router';
-import { Observable, throwError } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 import { Configuration } from 'src/app/config/mega.config';
 
 
@@ -47,7 +47,6 @@ export class GenericService {
 
   get<T>(queryParams?: HttpParams): Observable<T> {
     return this._http.get(this.url, { params: queryParams }).pipe(
-      catchError(this.handleError),
       map((response) => {
         return response as any;
       })
@@ -55,8 +54,9 @@ export class GenericService {
   }
 
   post<T>(obj?: any): Observable<T> {
-    return this._http.post(this.url, obj).pipe(
-      catchError(this.handleError),
+
+    return this._http.post(this.url, obj  , {withCredentials : true} ).pipe(
+      catchError((e) =>  of(e.error)),
       map((response) => {
         return response as any;
       })
@@ -66,8 +66,7 @@ export class GenericService {
   put<T>(obj: any): Observable<T> {
     const clone = Object.assign({}, obj);
     delete clone["_restangular"];
-    return this._http.put(this.url, clone).pipe(
-      catchError(this.handleError),
+    return this._http.put(this.url, clone , {withCredentials : true}).pipe(
       map((response) => {
         return response as any;
       })
@@ -75,8 +74,7 @@ export class GenericService {
   }
 
   delete<T>(): Observable<T> {
-    return this._http.delete(this.url).pipe(
-      catchError(this.handleError),
+    return this._http.delete(this.url, {withCredentials : true}).pipe(
       map((response) => {
         return response as any;
       })
@@ -94,10 +92,5 @@ export class GenericService {
     return new GenericService(this._http, this.router, { api : this.url});
   }
 
-  handleError(response: HttpErrorResponse) {
-    let errorMessage = response.error;
-    //return throwError(errorMessage);
-    return throwError(() => new Error(errorMessage));
-  }
 
 }

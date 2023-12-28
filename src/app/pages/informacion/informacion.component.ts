@@ -15,7 +15,7 @@ export class InformacionComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
-    this.dataService.routerWays().getAll().subscribe((r) => {this.rutas = r; console.log(r)});
+    this.dataService.routerWays().getActivos().subscribe((r) => {this.rutas = r});
   }
 
   querySize(width){

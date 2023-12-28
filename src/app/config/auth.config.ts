@@ -9,3 +9,4 @@ export const TOKEN_NAME = 'token';
 export const USER_DATA = 'access_data';
 
 export const REINTENTOS = 2;
+export const STORAGEKEY = "userID";

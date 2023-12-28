@@ -12,6 +12,11 @@ import { Configuration } from './config/mega.config';
 import { LoginComponent } from './pages/login/login.component';
 import { InformacionComponent } from './pages/informacion/informacion.component';
 import { ContactoComponent } from './pages/contacto/contacto.component';
+import { LoginUserComponent } from './pages/login-user/login-user.component';
+import { RegisterUserComponent } from './pages/register-user/register-user.component';
+import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
+import { OAuthModule } from 'angular-oauth2-oidc';
+import { IntranetUserComponent } from './pages/intranet-user/intranet-user.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +24,9 @@ import { ContactoComponent } from './pages/contacto/contacto.component';
     LoginComponent,
     InformacionComponent,
     ContactoComponent,
+    LoginUserComponent,
+    RegisterUserComponent,
+    IntranetUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,12 +35,14 @@ import { ContactoComponent } from './pages/contacto/contacto.component';
     BrowserModule,
     HttpClientModule,
     MatNativeDateModule,
-    FormsModule, 
+    FormsModule,
     ReactiveFormsModule,
     SharedModule
+
   ],
   providers: [
-    Configuration
+    Configuration,
+
   ],
   bootstrap: [AppComponent]
 })

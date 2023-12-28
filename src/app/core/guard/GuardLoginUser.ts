@@ -12,7 +12,7 @@ export class AuthGuard implements CanActivate {
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         //1) VERIFICAR SI EL USUARIO ESTA LOGUEADO
-        const logeado = this.dataService.localStorages().retrieve('SI') ? true : false ;
+        const logeado = this.dataService.localStorages().retrieve('SESSION_STORAGE') ? true : false ;
         if (logeado) {
             this.router.navigate(['/intranet/gestion'  ]);
             return false;

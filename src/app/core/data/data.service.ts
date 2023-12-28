@@ -23,7 +23,6 @@ export class DataService {
     private location: LocationService
 
   ) {
-    console.log("Hola")
   }
 
 

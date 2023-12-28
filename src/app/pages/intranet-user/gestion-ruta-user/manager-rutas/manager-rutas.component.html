@@ -1,0 +1,32 @@
+<div class="bg-blue-400  text-white px-4 py-4   ">
+  <span class="text-xl"> Crear Ruta</span>
+</div>
+<div>
+  <form [formGroup]="form">
+    <div class="px-2 py-4" >
+      <div class="flex flex-row flex-wrap gap-2 " >
+        <mat-form-field appearance="outline"   style="flex: 1 1 0;"  >
+          <mat-label>Nombre</mat-label>
+          <input matInput formControlName="Name"  >
+        </mat-form-field>
+        <mat-form-field  appearance="outline"  style="flex: 1 1 0;" >
+          <mat-label >Color</mat-label>
+          <input matInput  formControlName="Color" [ngStyle]=" {'color': form.get('Color').value}"  >
+        </mat-form-field>
+        <mat-form-field  appearance="outline"  style="flex: 1 0 100%;" >
+          <mat-label >Descripcion</mat-label>
+          <input matInput formControlName="Description"  >
+        </mat-form-field>
+
+      </div>
+      <div>
+        <mat-divider>
+        </mat-divider>
+      </div>
+      <div class="flex gap-2 py-2 " >
+        <button mat-button  [mat-dialog-close] >Cancelar</button>
+        <button mat-flat-button  color="primary" [disabled]="form.invalid" (click)="save()"  >Guardar</button>
+      </div>
+    </div>
+  </form>
+</div>
