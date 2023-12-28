@@ -11,3 +11,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 There are something that you need proveed- 
 * OSRM src\app\core\util\mapOption.ts
 * BACKSERVER src\app\config\auth.config.ts (see)[https://github.com/Lurey2/server-back-map-bus?tab=readme-ov-file]
+
+## live server
+
+(see)[http://ec2-54-196-14-202.compute-1.amazonaws.com/map] 
