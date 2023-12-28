@@ -1,0 +1,39 @@
+.form-field{
+    mat-form-field{
+        margin-right:10px ;
+    }
+    mat-form-field:last-child{
+        margin-right: 0 !important ;
+    }
+
+}
+
+.spinner-loading{
+    height: 80px;
+    width: 100%;display: flex;
+    justify-content: center;
+    align-items: center ;
+    padding: 10px;
+}
+
+
+.header-descriptionItem {
+    top: 10px;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    z-index: 500;
+    .panel-description {
+        width: 200px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0 14px;
+        align-items: center;
+        border-radius: 40px;
+        background-color: rgb(0, 158, 79);
+        color: white
+    }
+}

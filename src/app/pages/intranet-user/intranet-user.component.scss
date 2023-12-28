@@ -1,0 +1,121 @@
+.main-intarnet-user{
+  min-height:calc(100vh -  56px ) ;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  padding-top: 5px;
+}
+.sidevar-intranet-user{
+  width: 320px;
+  background-color: white;
+  border-radius: 5px;
+  .menu-intranet-user{
+    padding: 30px 10px 0 10px;
+    ul{
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      a{
+        &>div{
+          display: flex;
+          flex-direction: row;
+          gap: 10px;
+          height: 36px;
+          width: 100%;
+          align-items: center;
+          transition: 0.555s;
+          padding: 8px 5px;
+          cursor: pointer;
+          border-radius: 5px;
+          mat-icon{
+            transition: 0.222s;
+          }
+          &.icon-intranet-user{
+
+          }
+          &.text-intranet-user{
+
+          }
+
+          &:hover{
+            background-color: var(--backgroundShadow);
+            mat-icon{
+              transform: scale(1.2);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.container-intranet-user{
+  width: 100%;
+  border-radius: 5px;
+}
+.menu-dashboard-touch{
+  background: #ABD8F7;
+  display: none;
+}
+
+.back-drop{
+  display: none;
+  transition: 1s;
+  &.open{
+    display: initial !important;
+    animation-name: showBackDro ;
+    animation-duration: 0.222s;
+  }
+}
+
+@media (max-width:768px) {
+    .sidevar-intranet-user{
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 999;
+      height: 100%;
+      display: none;
+      width: 220px;
+      &.open{
+        display: initial;
+        animation-name: animateSlice;
+        animation-duration: 0.222s;
+      }
+    }
+    .back-drop{
+      top: 0;
+      height: 100%;
+      position: absolute;
+      width: 100%;
+      z-index: 998;
+      background: rgba($color: #000000, $alpha: 0.7);
+    }
+    .main-intarnet-user{
+      flex-direction: column;
+    }
+
+    .menu-dashboard-touch{
+      display: block;
+    }
+}
+
+
+@keyframes showBackDro {
+  from  {
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+
+
+@keyframes animateSlice {
+  from  {
+    transform: translateX(-100%);
+  }
+  to{
+    transform: translateX(0);
+  }
+}
+

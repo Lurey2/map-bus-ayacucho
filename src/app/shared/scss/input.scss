@@ -1,0 +1,19 @@
+.input_basic {
+  border: 1px solid  #92DCE5 ;
+  border-radius: 0.250rem;
+  padding: 1px 2px;
+  outline: none;
+  height: 25px;
+  transition: 0.222s;
+  &:focus {
+     outline: 2px solid #1E96FC !important;
+    ;
+  }
+}
+
+.input_redonded{
+  border: 1px solid 92DCE5;
+  border-radius: 25px;
+  padding: 8px 10px;
+  outline: none;
+}

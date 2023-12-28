@@ -1,0 +1,13 @@
+app-register-user{
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+@media (max-width:768px) {
+    .logo-register{
+      display: none;
+    }
+}

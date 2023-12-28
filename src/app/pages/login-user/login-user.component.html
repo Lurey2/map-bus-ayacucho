@@ -1,0 +1,45 @@
+<navbar-header></navbar-header>
+<div class=" bg-sky-100 flex justify-center h-full items-center">
+  <form [formGroup]="form" >
+    <div class="w-96 py-4  bg-white drop-shadow  rounded-md">
+      <div class="flex w-full h-full justify-center items-center gap-4 flex-col" >
+          <div>
+              <h1>INICIAR SESION</h1>
+          </div>
+          <div class="py-2" >
+            <button #googleButton ></button>
+            <div class="flex flex-row   align-middle gap-5 " >
+                    <mat-divider  style="flex: 1; margin-top: 10px; "  >
+                    </mat-divider>
+                    <div class="pb-4" >O</div>
+                    <mat-divider  style="flex: 1; margin-top: 10px; " >
+                    </mat-divider>
+                  </div>
+              </div>
+            <div class="flex justify-center items-center gap-3 flex-col" >
+            <mat-form-field class="w-72"  appearance="outline"  >
+              <mat-label>Email </mat-label>
+              <input matInput formControlName="Username" placeholder="jugan@gmail.com" >
+            </mat-form-field>
+            <mat-form-field class="w-72" appearance="outline" >
+              <mat-label>Password</mat-label>
+              <input matInput [type]="hide ? 'password' : 'text' "  formControlName="Password"  placeholder="******" >
+              <button type="button"  mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Esconder password'">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+            </mat-form-field>
+          </div>
+          <div *ngIf="errorLogin"  class="text-center text-red-500" >
+            Error en el Usuario o Contraseña
+          </div>
+          <div>
+            <button mat-flat-button (click)="initSession()" type="submit"  color="primary" [disabled]="form.invalid" style="width: 120px;" >Enviar</button>
+          </div>
+          <div>
+            ¿No tienes una cuenta ? <a class="mat-button  mat-primary" routerLink="/register-user" style="color: #3F51B5;">Registrarse</a>
+
+          </div>
+      </div>
+    </div>
+  </form>
+</div>

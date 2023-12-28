@@ -1,0 +1,42 @@
+<div style="position: relative">
+  <div class="button-open">
+    <button
+      mat-mini-fab
+      color="primary"
+      *ngIf="sidervarClass === 'desactiveS'"
+      appAnimateShowEvent
+      (click)="changeStateSidevar()"
+      aria-label="Open Sidevar"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+
+  <div
+    class="container-sidevar-m"
+    [ngClass]="'container-sidevar-m ' + sidervarClass"
+  >
+    <div class="background-sidevar">
+      <div class="button-cerrar" appAnimateFocusDark initialBack="0.1">
+        <span class="tittleSecondary" style="color: white">
+          INTRANET MAPS
+        </span>
+        <div>
+          <button mat-icon-button (click)="changeStateSidevar()">
+            <mat-icon>keyboard_backspace</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="list-menu-s">
+        <a href="">
+          <div class="item-sidevar" appAnimateFocusDark>
+            <span>GESTIONAR RUTAS</span>
+            <div style="margin-left: 10px">
+              <mat-icon>train</mat-icon>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

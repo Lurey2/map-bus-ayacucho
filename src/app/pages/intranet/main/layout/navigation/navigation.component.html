@@ -1,0 +1,27 @@
+<div class="container-navigation">
+  <div style="position: absolute; margin-top: 10px; width: 100%; z-index: 999">
+    <div class="button-option-menu">
+      <button mat-mini-fab (click)="changeMenu()">
+        <mat-icon *ngIf="!open">more_vert</mat-icon>
+        <mat-icon *ngIf="open">close</mat-icon>
+      </button>
+    </div>
+    <div [ngClass]="open ? 'list-button-rigth openMenu ' : 'list-button-rigth'">
+      <button mat-mini-fab color="warn"  matTooltip="Cerrar Sesion" (click)="logout()">
+        <mat-icon >logout</mat-icon>
+      </button>
+      <button mat-mini-fab (click)="navigateToIntranet()" color="primary"  matTooltip="Volver a Pagina Principal">
+        <mat-icon>dashboard</mat-icon>
+      </button>
+      <!--<button mat-mini-fab (click)="changeMenu()">
+        <mat-icon *ngIf="!open">more_vert</mat-icon>
+        <mat-icon *ngIf="open">close</mat-icon>
+      </button>
+      <button mat-mini-fab (click)="changeMenu()">
+        <mat-icon *ngIf="!open">more_vert</mat-icon>
+        <mat-icon *ngIf="open">close</mat-icon>
+      </button>-->
+    </div>
+
+  </div>
+</div>

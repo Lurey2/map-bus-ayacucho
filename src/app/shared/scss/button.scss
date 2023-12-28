@@ -1,0 +1,22 @@
+.button_25 {
+  display: inline-block;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition:  0.3s ease-in-out;
+  height: 25px; /* Tamaño del botón */
+  &:hover{
+    mat-icon {
+      color: #1E90FF !important;
+    }
+  }
+  &.active {
+    mat-icon {
+      color: #0080ff !important;
+    }
+  }
+
+}
+

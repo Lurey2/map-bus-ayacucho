@@ -1,0 +1,20 @@
+<div class="context-menu-container">
+  <!--<dx-context-menu
+  #contextMenuOption
+  [dataSource]="items"
+  [(visible)]="isContextMenuVisible"
+  (onItemClick)="selectOptionContextMenu($event)">
+  >
+</dx-context-menu>-->
+</div>
+
+<div
+[ngStyle]="connectNode.from ? {'cursor': 'default'} : {}"
+  class="map"
+  leaflet
+  [leafletOptions]="options"
+  (leafletMapZoom)="eventZoom($event)"
+  (leafletMapReady)="onMapReady($event)"
+>
+</div>
+

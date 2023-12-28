@@ -1,0 +1,11 @@
+<div
+  class="map"
+  leaflet
+  [leafletOptions]="options"
+  (leafletDrawStart)="onDrawStart($event)"
+  
+  (leafletClick)="selectMap($event)"
+  (leafletMapZoom)="eventZoom($event)"
+  (leafletMapReady)="onMapReady($event)"
+>
+</div>

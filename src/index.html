@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Mapa de bus de ayacucho</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-signin-client_id" content="930343312248-5v7hdfgf2ckaalo5hffc5tq76ffvqr3p.apps.googleusercontent.com">
+
+  <link rel="icon" type="image/x-icon" href="/assets/bus.svg">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <script src="https://unpkg.com/leaflet-routing-machine@^3.2.12/dist/L.Routing.OpenRouteService.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://accounts.google.com/gsi/client" onload="console.log('TODO: add onload function')" async defer>
+  </script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+  <script>
+    function  handleCredentialResponse(response){
+      console.log("load login" )
+      console.log(response)
+    }
+  </script>
+</head>
+<body class="mat-typography dx-viewport">
+  <app-root></app-root>
+</body>
+</html>

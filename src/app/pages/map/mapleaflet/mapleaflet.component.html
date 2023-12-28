@@ -1,0 +1,52 @@
+<div  class="option-header" *ngIf="viewRoute" >
+    <form [formGroup]="formRoute" >
+       <div style="padding: 10px 10px; background-color: white;display: flex;flex-direction: row;gap: 10px;" class="shadow_2 border_radius_2" >
+        <div style="display: flex;flex-direction: column;gap: 5px;">
+          <div style="display: flex; align-items: center; gap: 10px;" >
+            <span style="width: 50px;">Desde :</span>
+            <input type="text" disabled [value]="getControlValueLtnLat('origin')" placeholder="Origen" class="input_basic">
+            <button    [ngClass]="{'button_25': true , 'active' : optionActive === 'origin'}" (click)="activeSelectPosition('origin')"  matTooltip="Seleccionar Posicion">
+              <mat-icon style="color: #1E1E1E;" >radio_button_unchecked</mat-icon>
+            </button>
+            <button class="button_25"  (click)="setLocaleToForm('origin')" matTooltip="Introducir Posicion">
+              <mat-icon style="color: #1E1E1E;" >emoji_people</mat-icon>
+            </button>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px;" >
+            <span style="width: 50px;">Hasta : </span>
+            <input disabled [value]="getControlValueLtnLat('destiny')" type="text" placeholder="Destino" class="input_basic">
+            <button [ngClass]="{'button_25': true , 'active' : optionActive === 'destiny'}"  (click)="activeSelectPosition('destiny')"  matTooltip="Seleccionar Posicion">
+              <mat-icon style="color: #1E1E1E;" >radio_button_unchecked</mat-icon>
+            </button>
+            <button class="button_25" (click)="setLocaleToForm('destiny')" matTooltip="Introducir Posicion">
+              <mat-icon style="color: #1E1E1E;" >emoji_people</mat-icon>
+            </button>
+          </div>
+          <div>
+            <div  class="hover:bg-gray-200 text-center cursor-pointer" style="padding: 2px 4px;" *ngIf="formRoute.get('origin').valid || formRoute.get('destiny').valid" (click)="copyRoute()"  >
+              Compartir Direccion
+            </div>
+
+          </div>
+        </div>
+
+       </div>
+
+    </form>
+
+</div>
+<div class="info-botoom" *ngIf="rutaSelect" >
+   <span>
+     {{rutaSelect}}
+  </span>
+  <button matTooltip="Cerrar" (click)="cerrarSeleccionRuta()"   > <mat-icon>close</mat-icon> </button>
+</div>
+<div
+      class="map"
+      leaflet
+      [leafletOptions]="options"
+      (leafletClick)="selectMap($event)"
+      (leafletMapZoom)="eventZoom($event)"
+      (leafletMapReady)="onMapReady($event)"
+    >
+</div>

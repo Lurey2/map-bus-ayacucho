@@ -1,0 +1,52 @@
+<navbar-header></navbar-header>
+<div class="main-intarnet-user" >
+  <div  class=" mx-2 px-2 py-2 menu-dashboard-touch "  (click)="openSidevar = !openSidevar">
+    <span>Menu Dashboard</span>
+  </div>
+  <div class="back-drop" (click)="openSidevar = false"  [ngClass]="openSidevar ? 'back-drop open' : 'back-drop'" ></div>
+  <div [ngClass]="openSidevar ? 'sidevar-intranet-user open' : 'sidevar-intranet-user'"   >
+    <div class="menu-intranet-user" >
+      <ul>
+        <li>
+          <a routerLink="/user" >
+            <div  >
+              <div class="icon-intranet-user" >
+                <mat-icon style="color: #2D7AD6;" >home</mat-icon>
+              </div>
+              <div class="text-intranet-user" >
+                Home
+              </div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/user/route" >
+            <div  >
+              <div class="icon-intranet-user" >
+                <mat-icon style="color: #B5DE66;" >layers</mat-icon>
+              </div>
+              <div class="text-intranet-user" >
+                  Rutas
+              </div>
+            </div>
+          </a>
+        </li>
+        <!--<li>
+          <a  routerLink="/user/information" >
+            <div  >
+              <div class="icon-intranet-user" >
+                <mat-icon style="color: #FF0101;" >person</mat-icon>
+              </div>
+              <div class="text-intranet-user" >
+                  Perfil
+              </div>
+            </div>
+          </a>
+        </li>-->
+      </ul>
+    </div>
+  </div>
+  <div class="container-intranet-user  px-2 " >
+    <router-outlet></router-outlet>
+  </div>
+</div>

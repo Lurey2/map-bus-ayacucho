@@ -1,0 +1,42 @@
+<div>
+  <div class="header-dialog">
+    <h2 class="tittle-dialog">{{DialogTittle}}</h2>
+  </div>
+  <div style="margin: 0 14px" [formGroup]="form">
+    <div style="margin-top: 14px" fxLayout="column">
+      <div fxLayout="row" class="form-field" fxLayoutAlign="space-between center"  fxLayout.xs="column">
+        <mat-form-field appearance="outline">
+          <mat-label>Nombre de la ruta</mat-label>
+          <input formControlName="Name" matInput placeholder="Ruta 0" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Color de la ruta</mat-label>
+          <input formControlName="Color" matInput placeholder="#000000" />
+          <mat-icon matSuffix [ngStyle]="{ color: getColor() }">directions_bus</mat-icon>
+        </mat-form-field>
+        <div style="margin-bottom: 22px;" >
+          <button mat-icon-button (click)="changeState()" >
+            <mat-icon *ngIf="form.get('State').value" style="color: #64C972;"  >visibility</mat-icon>
+            <mat-icon *ngIf="!form.get('State').value" style="color: red;"  >visibility_off</mat-icon>
+          </button>
+        </div>
+
+      </div>
+      <div fxLayout="row" class="form-field" fxLayout.xs="column">
+        <mat-form-field fxFlex="100%" appearance="outline">
+          <mat-label>Descripcion </mat-label>
+          <textarea matInput formControlName="Description"></textarea>
+        </mat-form-field>
+      </div>
+    </div>
+    <mat-divider> </mat-divider>
+    <div style="margin: 14px 0 ; display: flex;justify-content: space-around;">
+      <button mat-raised-button color="warn" mat-dialog-close>Cancelar</button>
+      <button mat-raised-button color="primary" [disabled]="form.invalid" *ngIf="!(data.action == 'modify')"
+        (click)="save()">Guardar</button>
+      <button mat-raised-button color="primary" [disabled]="form.invalid" *ngIf="(data.action == 'modify')"
+        (click)="update()">Modificar</button>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,80 @@
+<navbar-header></navbar-header>
+<div class="flex justify-center flex-row  w-full h-full gap-5 "  style="background-color: #ABD8F7;" >
+  <div class="max-w-xl w-full logo-register " >
+    <img src="/assets/image/register-back.png" alt="logo de registro de usuario">
+  </div>
+  <div class="max-w-xl w-full px-4 flex flex-col align-middle  justify-center" >
+    <div class="w-full rounded-sm  "  >
+      <h2 class="font-light text-lg text-center   " style="color: #3751FE;"   >Iniciar Sesion</h2>
+      <div class="flex justify-around"  >
+
+        <button #googleButton ></button>
+<!--
+       <div id="g_id_onload"
+          data-client_id="930343312248-5v7hdfgf2ckaalo5hffc5tq76ffvqr3p.apps.googleusercontent.com"
+          data-context="signup"
+          data-ux_mode="popup"
+          data-callback="handleCredentialResponse"
+          data-nonce=""
+          data-auto_prompt="false">
+      </div>
+
+      <div class="g_id_signin"
+          data-type="standard"
+          data-shape="rectangular"
+          data-theme="outline"
+          data-text="signin_with"
+          data-size="large"
+          data-logo_alignment="left">
+      </div>
+-->
+      </div>
+      <div class="flex flex-row  align-middle gap-5 " >
+        <mat-divider  style="flex: 1; margin-top: 10px; "  >
+        </mat-divider>
+        <div class="pb-4" >O</div>
+        <mat-divider  style="flex: 1; margin-top: 10px; " >
+        </mat-divider>
+      </div>
+      <div class="  w-full " >
+        <form [formGroup]="form"  class="flex align-middle  flex-col gap-5 w-full " >
+          <div class="flex gap-4" >
+            <div class="flex flex-col flex-1 gap-2 "  >
+              <label for="user">Nombre :</label>
+              <input type="text" formControlName="Username" class="input_redonded w-full  px-2 py-2"   placeholder="Juan quispe" >
+            </div>
+            <div class="flex flex-col flex-1 gap-2 " >
+              <label for="email">Gmail :</label>
+              <input type="email" formControlName="Email" class="input_redonded w-full"   placeholder="javier@gmail.com" >
+              <span class="text-red-500 px-2" *ngIf="error['Email']" > {{error["Email"]}} </span>
+
+            </div>
+          </div>
+          <div class="flex flex-col gap-2 ">
+            <label for="password">Password :</label>
+            <input type="password" formControlName="Password" placeholder="********" class=" input_redonded w-full" >
+          </div>
+          <div class="flex flex-col gap-2 ">
+            <label for="password">Confirmar Password :</label>
+            <input type="password" formControlName="Passwordtemp" placeholder="********" class=" input_redonded w-full" >
+            <span class="text-red-500" > {{f["Passwordtemp"].errors?.error}} </span>
+          </div>
+          <div class="flex justify-center"  >
+            <button mat-flat-button class="px-4 py-2 w-36 " color="primary" [disabled]="form.invalid && !load"  (click)="SignUp()" >
+              <span  *ngIf="!load" >Registrarse</span>
+              <span *ngIf="load" >
+                <mat-spinner
+                  diameter="20">
+                </mat-spinner>
+              </span>
+            </button>
+          </div>
+          <div  class="text-center" >
+            ¿Tiene una cuenta?  <a class="mat-button  mat-primary" routerLink="/login-user" style="color: #3F51B5;">Iniciar Sesion</a>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

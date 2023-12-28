@@ -1,0 +1,13 @@
+<div class="map w-full h-full " id="map-leaflet" leaflet  [leafletOptions]="options" (leafletMapReady)="onMapReady($event)">
+</div>
+<div class="menu-view-route shadow " id="menu-item" *ngIf="menuShowState"  [ngStyle]="{'left': positionMenu.x , 'top' : positionMenu.y}"  >
+  <div  class="flex flex-col px-0 py-1"  >
+    <div class="px-4 py-2 mat-menu-item" (click)="createPoint(dataMenu.latlng)" >Nuevo</div>
+    <div class="px-4 py-2 mat-menu-item" (click)="update()" >Guardar</div>
+    <div *ngIf="dataMenu.data"  class="px-4 py-2 mat-menu-item"  (click)="delete(dataMenu.data)" >Eliminar</div>
+    <div *ngIf="dataMenu.data"  class="px-4 py-2 mat-menu-item"  (click)="connect(dataMenu.data)" >Conectar</div>
+
+  </div>
+</div>
+
+
