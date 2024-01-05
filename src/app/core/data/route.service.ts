@@ -69,6 +69,7 @@ constructor(
 
 
   searchRouteNearby(origin: LatLng  ){
+    console.log(this.generic.all(basePath).all("nearbyRouteLtnLng").path)
     const content = {
       CoordInitialLat : origin.lat,
       CoordInitialLng : origin.lng

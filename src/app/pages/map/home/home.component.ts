@@ -60,14 +60,12 @@ export class HomeComponent implements OnInit , AfterViewInit {
   }
   openOrder() {
     const dialog = this.matDialog.open(OrdenMapComponent, {
-      panelClass: 'event-form-dialog',
       data: {
         action: 'new',
       },
       width: '1000px',
     });
 
-    dialog.afterClosed().subscribe((data) => {});
   }
 
   selectBus(bus , index) {
@@ -102,9 +100,6 @@ export class HomeComponent implements OnInit , AfterViewInit {
 
   ubicarse() {
     this.mapLeaflet.ubicarse();
-    console.log(
-      this.mapLeaflet.routinControl.length
-    )
   }
 
   querySize(width){

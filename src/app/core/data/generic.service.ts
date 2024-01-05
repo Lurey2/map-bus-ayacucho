@@ -55,8 +55,8 @@ export class GenericService {
 
   post<T>(obj?: any): Observable<T> {
 
-    return this._http.post(this.url, obj  , {withCredentials : true} ).pipe(
-      catchError((e) =>  of(e.error)),
+    return this._http.post(this.url, obj , {withCredentials : true} ).pipe(
+      catchError((e) =>  { console.log(e);return of(e.error)}),
       map((response) => {
         return response as any;
       })

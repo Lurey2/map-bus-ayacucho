@@ -1,11 +1,9 @@
 @import '~material-icons/iconfont/material-icons.css';
 @import 'app/shared/scss/shared.scss';
-@import url('https://fonts.googleapis.com/css family=Titillium+Web:300,400,400i,600,600i,700');
 /* You can add global styles to this file, and also import other style files */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import '@angular/cdk/overlay-prebuilt.css';
 
 *{
   box-sizing: border-box;

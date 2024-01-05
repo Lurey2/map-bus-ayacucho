@@ -3,9 +3,7 @@
       <h2 class="tittle-dialog">Ordenar Rutas</h2>
     </div>
     <div>
-      <div>
-
-        <div class=" table-list-custom-1" style="padding:20px 0px;max-height: 600px;overflow-y: auto;overflow-x: auto;" >
+        <div class=" table-list-custom-1" style="padding:10px 0px;max-height: 450px;overflow-y: auto;" >
           <table mat-table [dataSource]="dataSource" style="width: 100%">
             <ng-container matColumnDef="index">
               <th mat-header-cell *matHeaderCellDef>No.</th>
@@ -58,7 +56,6 @@
           <button mat-stroked-button mat-dialog-close >Cancelar</button>
           <button mat-stroked-button  style="margin-left: 10px; " (click)="guardar()"  color="primary">Guardar</button>
         </div>
-      </div>
 
     </div>
 

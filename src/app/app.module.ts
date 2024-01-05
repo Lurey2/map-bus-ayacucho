@@ -14,8 +14,6 @@ import { InformacionComponent } from './pages/informacion/informacion.component'
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { LoginUserComponent } from './pages/login-user/login-user.component';
 import { RegisterUserComponent } from './pages/register-user/register-user.component';
-import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
-import { OAuthModule } from 'angular-oauth2-oidc';
 import { IntranetUserComponent } from './pages/intranet-user/intranet-user.component';
 
 @NgModule({

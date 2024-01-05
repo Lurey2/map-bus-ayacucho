@@ -1,4 +1,4 @@
-import { LatLng, LatLngExpression, LeafletMouseEvent, Map, Marker, MarkerOptions, Point, latLng, marker } from "leaflet";
+import { Icon, LatLng, LatLngExpression, LeafletMouseEvent, Map, Marker, MarkerOptions, Point, latLng, marker } from "leaflet";
 import { PointInterface } from "../model/Point.model";
 import { MAPOPTION } from "./mapOption";
 import { concat } from "rxjs";
@@ -26,7 +26,6 @@ export class Graphc {
       this.map.removeControl(flow.flow);
     }
 
-    this.routeFlow.forEach((flow) => console.log("flow", flow))
 
     let routerList : LatLng[] = [latLng(from.Lat, from.Lng) , latLng(to.Lat, to.Lng) ];
 
@@ -79,15 +78,11 @@ export class Graphc {
     if( point.IndexNext &&  point.IndexNext > 0){
       const index =this.routeFlow.findIndex((f) =>f.flow.index === data.Index);
       const flow = this.routeFlow[index];
-      console.log(flow);
       this.routeFlow = [].concat(this.routeFlow.slice(0 , index) , this.routeFlow.slice(index+ 1))
       this.map.removeControl(flow.arrow);
       this.map.removeControl(flow.flow);
     }
-    console.log(this.routeFlow)
-    console.log(data.Index)
     const indexFlow = this.routeFlow.findIndex((f) => f.flow.IndexNext === data.Index );
-    console.log(indexFlow)
     if ( indexFlow >= 0 ){
 
       const flowBack = this.routeFlow[indexFlow];
@@ -200,7 +195,6 @@ export class Graphc {
 
   private getDistanceOsmrv(latLngs : LatLng[]){
     return new Promise<any>((resolve) => {
-      console.log(latLngs)
       const dataRouter = [
         ...latLngs.map((m) => L.Routing.waypoint({lat : m.lat , lng : m.lng}) )
       ]
@@ -214,13 +208,29 @@ export class Graphc {
   }
 }
 
+var LeafIcon = L.Icon.extend({
+  options: {
+      iconSize:     [32, 48], // size of the icon
+      shadowSize:   [32, 32], // size of the shadow
+      iconAnchor:   [22, 47], // point of the icon which will correspond to marker's location
+      shadowAnchor: [4, 62],  // the same for the shadow
+      popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+  }
+})
+
 export class markerCustom extends Marker {
 
   constructor(public latlng : LatLngExpression , public data : PointInterface , option?:  MarkerOptions  ){
-    super(latlng , option);
+
+    super(latlng , {...option , icon : CustomIcon });
   }
 
 
 }
+
+export const CustomIcon =  new LeafIcon({
+  iconUrl: '/assets/2273e3d8ad9264b7daa5bdbf8e6b47f8.png',
+  shadowUrl: '/assets/44a526eed258222515aa21eaffd14a96.png'
+})
 
 type eventListener = (event : any) => void;

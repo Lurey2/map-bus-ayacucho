@@ -1,6 +1,6 @@
 <navbar-header></navbar-header>
 <div class=" bg-sky-100 flex justify-center h-full items-center">
-  <form [formGroup]="form" >
+  <form [formGroup]="form"  (ngSubmit)="initSession()" >
     <div class="w-96 py-4  bg-white drop-shadow  rounded-md">
       <div class="flex w-full h-full justify-center items-center gap-4 flex-col" >
           <div>

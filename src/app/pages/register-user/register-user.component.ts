@@ -1,9 +1,7 @@
-import { SocialAuthService } from '@abacritt/angularx-social-login';
-import { HttpClient } from '@angular/common/http';
+
 import { AfterViewChecked, Component, ElementRef, NgZone, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { CookieService } from 'ngx-cookie-service';
 import { finalize } from 'rxjs';
 import { STORAGEKEY } from 'src/app/config/auth.config';
 import { DataService } from 'src/app/core/data/data.service';
